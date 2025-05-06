@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+body {
+    font-size: 15pt;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    text-align: center;
+    display: grid;
+    place-items: center;
+}
+h2 {
+  color: #00f;
+}
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+.task-collector {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+button[onclick="addTask()"] {
+  background-color: blue;
+  color: #fff;
+  padding-inline: 15px;
+  font-size: 13pt;
+  font-weight: bold;
+  width: 35%;
+}
+input {
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  width: 63%;
+}
+input:hover {
+  outline: lightblue;
+}
+section {
+  width: 80%;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin: auto;
+  width: 100%;
+  overflow: hidden;
+}
+li {
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.text {
+  width: 50%;
+  max-width: 50%;
+  text-align: left;
+  overflow-wrap: break-word;
+  flex-shrink: 1;
+}
+.delBtn, .editBtn {
+  color: #fff;
+  margin-inline: 1px;
+  flex-shrink: 0;
+}
+.delBtn {
+  background-color: red;
+  width: 50%;
+}
+.editBtn {
+  background-color: green;
+  width: 45%;
+}
+
+.btn-cont {
+  max-width: 50%;
+  width: 50%;
+  padding: 0;
+}
+li:nth-child(even) {
+  background-color: #0015FFB8;
+}
+@media screen and (min-width: 450px) {
+  section {
+    width: 50%;
+  }
+}
