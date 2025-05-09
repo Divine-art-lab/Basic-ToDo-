@@ -1,3 +1,13 @@
+let date =new Date();
+let formatedDate = date.toLocaleString('default', { year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric'
+  });
+  console.log(formatedDate)
+  
+  
 function addTask() {
   //get the value of the input 
   let task = document.getElementById("task").value;
@@ -36,9 +46,14 @@ function addTask() {
     }
     listText.nodeValue = newTask;
   }
+  //create date/time 
+  let date = document.createElement("p");
+  date.textContent = formatedDate;
+  date.classList.add("date");
   //add then to the list
   buttons.appendChild(editBtn);
   buttons.appendChild(delBtn);
+  buttons.appendChild(date);
   list.appendChild(buttons)
   
   //get the ul element and add the list element as child 
