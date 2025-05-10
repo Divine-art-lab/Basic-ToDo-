@@ -5,8 +5,6 @@ let formatedDate = date.toLocaleString('default', { year: 'numeric',
     hour: 'numeric',
     minute: 'numeric'
   });
-  console.log(formatedDate)
-  
   
 function addTask() {
   //get the value of the input 
