@@ -39,7 +39,7 @@ input:hover {
   outline: lightblue;
 }
 section {
-  width: 80%;
+  width: 85%;
 }
 ul {
   list-style-type: none;
@@ -50,42 +50,53 @@ ul {
   overflow: hidden;
 }
 li {
-  padding: 5px;
+  padding: 5px 8px;
   border-radius: 5px;
   font-weight: bold;
   display: flex;
   width: 100%;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+  margin-top: 5px;
+}
+.checkBox {
+  align-self: center;
+  padding: 2px;
+  width: auto;
 }
 .text {
-  width: 50%;
-  max-width: 50%;
+  width: 65%;
+  max-width: 65%;
   text-align: left;
   overflow-wrap: break-word;
   flex-shrink: 1;
+  margin: 0;
 }
 .delBtn, .editBtn {
   color: #fff;
   margin-inline: 1px;
-  flex-shrink: 0;
+  font-size: 15pt;
 }
 .delBtn {
-  background-color: red;
-  width: 50%;
+  color: red;
+  width: 35%;
 }
 .editBtn {
-  background-color: green;
-  width: 45%;
+  color: green;
+  width: 30%;
+  margin-left: 5px;
 }
 
 .btn-cont {
-  max-width: 50%;
-  width: 50%;
+  max-width: 35%;
+  width: 35%;
   padding: 0;
 }
 li:nth-child(even) {
-  background-color: #0015FFB8;
+  background-color: #BDC2F569;
+}
+li:hover {
+  background-color: #BDC2F5A8;
 }
 .date {
   font-size: 16px;

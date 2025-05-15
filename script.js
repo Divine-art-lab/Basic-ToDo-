@@ -1,5 +1,5 @@
 let date =new Date();
-let formatedDate = date.toLocaleString('default', { year: 'numeric',
+let formatedDate = date.toLocaleString('default', {
     month: 'short',
     day: 'numeric',
     hour: 'numeric',
@@ -14,19 +14,24 @@ function addTask() {
   let listText = document.createTextNode(task);
   let textContainer = document.createElement("p");
   textContainer.appendChild(listText);
+  checkBox = document.createElement("input");
+  checkBox.type = "checkbox";
+  list.appendChild(checkBox);
+  checkBox.classList.add("checkBox");
   list.appendChild(textContainer);
   if (task === "") {
     alert("please input a task");
     return;
   }
 
+  
   //create a delete and edit buttons
   let editBtn = document.createElement("button");
   let delBtn = document.createElement("button");
   let buttons = document.createElement("div");
   //add text content and style them
-  delBtn.innerHTML = '<i class="fa fa-times icon"></i>' + " delete";
-  editBtn.innerHTML = "<i class='fa fa-pencil icon'></i> Edit";
+  delBtn.innerHTML = '<i class="fa fa-trash icon"></i>';
+  editBtn.innerHTML = "<i class='fa fa-pencil icon'></i>";
   //give them a class name foe styling 
   delBtn.classList.add("delBtn");
   editBtn.classList.add("editBtn");
@@ -45,17 +50,21 @@ function addTask() {
     listText.nodeValue = newTask;
   }
   //create date/time 
-  let date = document.createElement("p");
+  /*let date = document.createElement("p");
   date.textContent = formatedDate;
-  date.classList.add("date");
+  date.classList.add("date");*/
+  
+  
   //add then to the list
   buttons.appendChild(editBtn);
   buttons.appendChild(delBtn);
-  buttons.appendChild(date);
-  list.appendChild(buttons)
+  //buttons.appendChild(date);
+  list.appendChild(buttons);
+  
+  
   
   //get the ul element and add the list element as child 
-  document.querySelector("ul").appendChild(list);
-  
+  let main = document.querySelector("ul").appendChild(list);
+  localStorage.getItem = list;
   //document.getElementById("task").value = "";
 }
