@@ -30,7 +30,7 @@ form #input {
     border: 1px solid black;
     outline: none;
 }
-form input[type="submit"] {
+form button[type="submit"] {
     grid-area: 'span2fr';
     font-size: 16px;
     padding: 5px;
@@ -63,6 +63,9 @@ ul li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.editMode {
+    color: #555;
 }
 .close {
     border: none;
