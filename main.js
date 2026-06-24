@@ -10,7 +10,7 @@ let isEditMode = false;
 
 //display items from localStorage if there's any; after page loads.
 function displayItems() {
-  let items = getItemsFromStorage();
+  const items = getItemsFromStorage();
   items.forEach(item => createAndAddItem(item));
   
   checkUI();
@@ -19,9 +19,8 @@ function displayItems() {
 //Get input value and display item or task
 function addAndDisplayItem(e) {
   e.preventDefault();
-  let inputElement = document.getElementById('input');
   
-  if (inputElement.value === '') {
+  if (formInput.value === '') {
     alert('Please input an item or task');
     return;
   }
@@ -29,21 +28,29 @@ function addAndDisplayItem(e) {
   //check if it's in editMode
   if (isEditMode) {
     const item = ul.querySelector('.editMode');
-    deleteItem(item);
-    
+    deleteItemFromStorage(item);
+    formBtn.stylem.color = '#333';
+    formBtn.value = 'Add Item';
+    isEditMode = false;
+  } else {
+    const items = getItemsFromStorage();
+    const result = items.some(word => word.trim().toLowerCase() === formInput.value.trim().toLowerCase()); 
+    if (result) {
+      alert(`item ${formInput.value} already exist`);
+      return;
+    }
   }
-  
-  createAndAddItem(inputElement.value.trim());
+  createAndAddItem(formInput.value.trim());
   
   //get the input value and save it to localStorage
-  saveItemToStorage(inputElement.value.trim())
+  saveItemToStorage(formInput.value.trim())
   
-  inputElement.value = ''
+  formInput.value = ''
   
   checkUI();
 }
 
-//create lit item
+//create item
 function createAndAddItem(item) {
   const p = ul.querySelector('p');
   if (p) p.remove();
@@ -106,7 +113,6 @@ function deleteItem(item) {
     checkUI();
   }
   
-  
 //remove item from storage
 function deleteItemFromStorage(element) {
   let itemsFromStorage = getItemsFromStorage();
@@ -133,7 +139,6 @@ function  clearAllItem() {
 
 //remove the clear button and filter input if there's no item/task
 function checkUI() {
-  isEditMode = false;
   const p = ul.querySelector('p');
   if (ul.firstElementChild === p /*|| ul.firstElementChild === null*/) {
     clearBtn.style.display = 'none';
@@ -144,7 +149,7 @@ function checkUI() {
     filterInput.style.display = 'grid';
   }
   
-  formBtn.innerHTML = '<i class="fa fa-plus icon"></i> Add Item';
+  formBtn.innerHTML = '<i class="fa fa-plus icon" style="color: white"></i> Add Item';
   formBtn.style.backgroundColor = '#333';
 }
 
