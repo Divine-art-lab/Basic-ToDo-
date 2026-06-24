@@ -29,7 +29,8 @@ function addAndDisplayItem(e) {
   if (isEditMode) {
     const item = ul.querySelector('.editMode');
     deleteItemFromStorage(item);
-    formBtn.stylem.color = '#333';
+    item.remove();
+    formBtn.style.backgroundColor = '#333';
     formBtn.value = 'Add Item';
     isEditMode = false;
   } else {
