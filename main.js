@@ -141,13 +141,15 @@ function  clearAllItem() {
 //remove the clear button and filter input if there's no item/task
 function checkUI() {
   const p = ul.querySelector('p');
-  if (ul.firstElementChild === p /*|| ul.firstElementChild === null*/) {
+  const lis = ul.querySelectorAll('li'); 
+  if (ul.firstElementChild === p && lis.length === 0) {
     clearBtn.style.display = 'none';
     filterInput.style.display = 'none';
     p.style.display = 'block';
   } else {
     clearBtn.style.display = 'block';
     filterInput.style.display = 'grid';
+    
   }
   
   formBtn.innerHTML = '<i class="fa fa-plus icon" style="color: white"></i> Add Item';
@@ -161,7 +163,7 @@ function saveItemToStorage(item) {
   //Add new item
   items.push(item);
   
-  //save uitems back to local storage(with the new item added)
+  //save items back to local storage(with the new item added)
   localStorage.setItem('items', JSON.stringify(items));
 }
 
@@ -187,8 +189,6 @@ function filterItems(e) {
     ul.querySelectorAll('li').forEach((item) => {
       item.style.display = item.firstChild.textContent.trim().toLowerCase().includes(e.target.value.trim().toLowerCase()) ? 'flex': 'none';
     })
-
-  checkUI();
 }
 
 //Add all the event listeners 
